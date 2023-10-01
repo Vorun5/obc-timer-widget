@@ -14,9 +14,15 @@ export function App() {
   const date = new Date("09.28.2023").getTime();
   const distance = new Date().getTime() - date;
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    .toString()
+    .padStart(2, "0");
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+    .toString()
+    .padStart(2, "0");
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000)
+    .toString()
+    .padStart(2, "0");
 
   const topDonation = {
     nickname: "дядя смурф не откажите, попу покажите",
