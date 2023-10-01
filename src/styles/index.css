@@ -1,0 +1,86 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+html,
+body {
+  font: 16px/1 "Russo One", sans-serif;
+  color: #fff;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 372px;
+  text-align: center;
+}
+
+.timer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 140px;
+}
+
+.timer-bg {
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.timer-emote {
+  height: 60px;
+  margin: 22px 20px 0 24px;
+}
+
+.timer-info {
+  margin: 22px 0 0 0;
+  text-align: start;
+}
+
+.timer-info-price {
+  text-transform: uppercase;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.timer-info-time {
+  text-transform: uppercase;
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+.donation {
+  position: relative;
+  width: 100%;
+}
+
+.donation-bg {
+  width: 100%;
+  z-index: -2;
+  position: absolute;
+  top: -80px;
+  left: 0;
+}
+
+.donation-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: start;
+}
+
+.donation-nickname-container {
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px 0 10px;
+}
+
+.donation-value {
+  text-transform: uppercase;
+  margin-right: 10px;
+}
