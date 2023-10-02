@@ -1,5 +1,6 @@
 import { useState, memo } from "react";
 import B from "./assets/B.png";
+import peepoPopcorn from "./assets/peepoPopcorn.gif";
 import { useEffect } from "react";
 
 function formatDonation(num) {
@@ -32,10 +33,11 @@ function formatTime(time) {
 }
 
 const StreamUptime = memo(function StreamUptime() {
-  const [streamUptime, setStreamUptime] = useState(new Date('1 Oct 2023, 18:00:00 UTC').getTime());
+  const [streamUptime, setStreamUptime] = useState(
+    new Date("1 Oct 2023, 18:00:00 UTC").getTime()
+  );
 
   useEffect(() => {
-    console.log(streamUptime);
     const streamUptimeInterval = setInterval(() => {
       const newNow = new Date().getTime();
       setStreamUptime(newNow - streamUptime);
@@ -114,12 +116,17 @@ export function Timer() {
         <StreamUptime />
         <img className="timer-bg" src="./bg1.png" />
         <div className="timer-info-container">
-          <img className="timer-emote" src={B} />
+          <img
+            className="timer-emote"
+            src={data.time < 3600 ? B : peepoPopcorn}
+          />
           <div className="timer-info">
             <span className="timer-info-price">
               {formatDonation(1000)} = 1 час
             </span>
-            <span className="timer-info-time">{formatTime(data.time)}</span>
+            <span className="timer-info-time">
+              {data.time < 0 ? "the end" : formatTime(data.time)}
+            </span>
           </div>
         </div>
       </div>
