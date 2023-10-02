@@ -21,10 +21,10 @@ body {
   position: absolute;
   top: 105px;
   animation-name: kabanidet;
-  animation-duration: 600s;
+  animation-duration: 1200s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-delay: 10s;
+  animation-delay: 610s;
   left: -80px;
 }
 
@@ -33,7 +33,7 @@ body {
     left: -80px;
   }
 
-  2% {
+  1% {
     left: 380px;
   }
 
@@ -41,6 +41,238 @@ body {
     left: 380px;
   }
 }
+
+.sniper {
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  width: 120px;
+  transform: rotate(-22deg);
+  bottom: 10px;
+  left: -10px;
+
+  animation-name: snipersidit;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-delay: 10s;
+}
+
+@keyframes snipersidit {
+  0.5% {
+    opacity: 1;
+  }
+
+  1.5% {
+    opacity: 1;
+  }
+
+  1.55% {
+    opacity: 0;
+  }
+}
+
+.svin {
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  right: 10px;
+  height: 50px;
+  top: 40px;
+
+  animation-name: svineating;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-delay: 10s;
+}
+
+@keyframes svineating {
+  0.05% {
+    opacity: 1;
+  }
+
+  1% {
+    opacity: 1;
+  }
+
+  1.05% {
+    opacity: 0;
+  }
+}
+
+.svindead {
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  right: 8px;
+  height: 54px;
+  top: 40px;
+
+  animation-name: svinumer;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-delay: 10s;
+}
+
+@keyframes svinumer {
+  0% {
+    opacity: 0;
+  }
+
+  0.99% {
+    opacity: 0;
+  }
+
+  1% {
+    opacity: 1;
+  }
+
+  1.5% {
+    opacity: 1;
+  }
+
+  1.55% {
+    opacity: 0;
+  }
+}
+
+.bullet {
+  opacity: 0;
+  position: absolute;
+  z-index: 4;
+  width: 30px;
+  transform: rotate(60deg);
+  left: 100px;
+  bottom: 53px;
+
+  animation-name: bulletletit;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 10s;
+}
+
+@keyframes bulletletit {
+  0.49% {
+    opacity: 0;
+  }
+
+  0.5% {
+    opacity: 1;
+    left: 100px;
+    bottom: 53px;
+  }
+
+  1% {
+    opacity: 1;
+    left: 300px;
+    bottom: 133px;
+  }
+
+  1.05% {
+    opacity: 0;
+  }
+}
+
+.boom {
+  opacity: 0;
+  position: absolute;
+  z-index: 5;
+  width: 20px;
+  transform: rotate(150deg);
+  left: 87px;
+  bottom: 48px;
+
+  animation-name: boomletit;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 10s;
+}
+
+@keyframes boomletit {
+  0.49% {
+    opacity: 0;
+  }
+
+  0.5% {
+    opacity: 1;
+    left: 87px;
+    bottom: 48px;
+  }
+
+  1% {
+    opacity: 1;
+    left: 287px;
+    bottom: 128px;
+  }
+
+  1.05% {
+    opacity: 0;
+  }
+}
+
+.peepoHappy {
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  width: 40px;
+  bottom: 70px;
+  right: 90px;
+
+  animation-name: peepoHappySidit;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 10s;
+}
+
+@keyframes peepoHappySidit {
+  0.05% {
+    opacity: 1;
+  }
+
+  1.05% {
+    opacity: 1;
+  }
+
+  1.1% {
+    opacity: 0;
+  }
+}
+
+.peepoSad {
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  width: 40px;
+  bottom: 70px;
+  right: 90px;
+
+  animation-name: peepoSadSidit;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 10s;
+}
+
+@keyframes peepoSadSidit {
+  1.05% {
+    opacity: 0;
+  }
+
+  1.1% {
+    opacity: 1;
+  }
+
+  1.5% {
+    opacity: 1;
+  }
+
+  1.55% {
+    opacity: 0;
+  }
+}
+
 .timer {
   position: relative;
   width: 100%;

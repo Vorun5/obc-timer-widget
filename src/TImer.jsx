@@ -32,7 +32,7 @@ function formatTime(time) {
 }
 
 const StreamUptime = memo(function StreamUptime() {
-  const [streamUptime, setStreamUptime] = useState(new Date('2 Oct 2023, 17:00:00 UTC').getTime());
+  const [streamUptime, setStreamUptime] = useState(new Date('1 Oct 2023, 18:00:00 UTC').getTime());
 
   useEffect(() => {
     console.log(streamUptime);
@@ -49,7 +49,7 @@ const StreamUptime = memo(function StreamUptime() {
 
   return (
     <span className="timer-stream-uptime">
-      Стрим идёт: <span>{formatTime(streamUptime)}</span>
+      Стрим идет: <span>{formatTime(streamUptime)}</span>
     </span>
   );
 });
