@@ -13,7 +13,7 @@ export function App() {
   useEffect(() => {
     const refreshInterval = setInterval(() => {
       window.location.reload();
-    }, 1260000);
+    }, 1200000);
 
     return () => clearInterval(refreshInterval);
   }, []);
