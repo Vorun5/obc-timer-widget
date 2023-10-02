@@ -2,6 +2,7 @@ import { useState, memo } from "react";
 import B from "./assets/B.png";
 import peepoPopcorn from "./assets/peepoPopcorn.gif";
 import { useEffect } from "react";
+import { STREAM_START_DATE } from "./const";
 
 function formatDonation(num) {
   return num
@@ -34,13 +35,13 @@ function formatTime(time) {
 
 const StreamUptime = memo(function StreamUptime() {
   const [streamUptime, setStreamUptime] = useState(
-    new Date("1 Oct 2023, 18:00:00 UTC").getTime()
+    new Date().getTime() - STREAM_START_DATE
   );
 
   useEffect(() => {
     const streamUptimeInterval = setInterval(() => {
-      const newNow = new Date().getTime();
-      setStreamUptime(newNow - streamUptime);
+      const now = new Date().getTime();
+      setStreamUptime(now - STREAM_START_DATE);
     }, 1000);
 
     return () => {
@@ -58,6 +59,7 @@ const StreamUptime = memo(function StreamUptime() {
 
 export function Timer() {
   const [data, setData] = useState({
+    status: "idle",
     countDownTime: 0,
     time: 0,
     stopped: false,
@@ -79,11 +81,16 @@ export function Timer() {
         ...newData,
         time: newData.time - new Date().getTime(),
         countDownTime: newData.time,
+        status: "success",
       });
     } catch (e) {
       console.log(e.message);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const fetchDataInterval = setInterval(() => {
@@ -112,45 +119,51 @@ export function Timer() {
 
   return (
     <>
-      <div className="timer">
-        <StreamUptime />
-        <img className="timer-bg" src="./bg1.png" />
-        <div className="timer-info-container">
-          <img
-            className="timer-emote"
-            src={data.time < 3600 ? B : peepoPopcorn}
-          />
-          <div className="timer-info">
-            <span className="timer-info-price">
-              {formatDonation(1000)} = 1 час
-            </span>
-            <span className="timer-info-time">
-              {data.time < 0 ? "the end" : formatTime(data.time)}
-            </span>
+      {data.status === "idle" ? (
+        <></>
+      ) : (
+        <>
+          <div className="timer">
+            <StreamUptime />
+            <img className="timer-bg" src="./bg1.png" />
+            <div className="timer-info-container">
+              <img
+                className="timer-emote"
+                src={data.time < 3600 ? B : peepoPopcorn}
+              />
+              <div className="timer-info">
+                <span className="timer-info-price">
+                  {formatDonation(1000)} = 1 час
+                </span>
+                <span className="timer-info-time">
+                  {data.time < 0 ? "the end" : formatTime(data.time)}
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="donation">
-        <img className="donation-bg" src="./bg2.png" />
-        <div className="donation-item">
-          <div className="donation-nickname-container">
-            <span className="donation-nickname">{data.top.nick}</span>
+          <div className="donation">
+            <img className="donation-bg" src="./bg2.png" />
+            <div className="donation-item">
+              <div className="donation-nickname-container">
+                <span className="donation-nickname">{data.top.nick}</span>
+              </div>
+              - &nbsp;
+              <span className="donation-value">
+                {formatDonation(data.top.amount)}
+              </span>
+            </div>
+            <div className="donation-item">
+              <div className="donation-nickname-container">
+                <span className="donation-nickname">{data.last.nick}</span>
+              </div>
+              - &nbsp;
+              <span className="donation-value">
+                {formatDonation(data.last.amount)}
+              </span>
+            </div>
           </div>
-          - &nbsp;
-          <span className="donation-value">
-            {formatDonation(data.top.amount)}
-          </span>
-        </div>
-        <div className="donation-item">
-          <div className="donation-nickname-container">
-            <span className="donation-nickname">{data.last.nick}</span>
-          </div>
-          - &nbsp;
-          <span className="donation-value">
-            {formatDonation(data.last.amount)}
-          </span>
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 }

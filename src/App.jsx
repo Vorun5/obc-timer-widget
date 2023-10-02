@@ -7,8 +7,17 @@ import Boom from "./assets/boom.gif";
 import SvinDead from "./assets/SvinDead.png";
 import peepoHappy from "./assets/peepoHappy.png";
 import peepoSad from "./assets/peepoSad.png";
+import { useEffect } from "react";
 
 export function App() {
+  useEffect(() => {
+    const refreshInterval = setInterval(() => {
+      window.location.reload();
+    }, 1260000);
+
+    return () => clearInterval(refreshInterval);
+  }, []);
+
   return (
     <div className="wrapper">
       <img src={Kaban} className="kaban" />
