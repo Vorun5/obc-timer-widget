@@ -3,357 +3,130 @@
 
 html,
 body {
-  font: 16px/1 "Russo One", sans-serif;
-  color: #fff;
+    font:
+        16px/1 "Russo One",
+        sans-serif;
+    color: #fff;
 }
 
 .wrapper {
-  position: relative;
-  margin: 0 auto;
-  width: 372px;
-  text-align: start;
-  overflow: hidden;
-}
-
-.kaban {
-  height: 50px;
-  z-index: 2;
-  position: absolute;
-  top: 105px;
-  animation-name: kabanidet;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-delay: 610s;
-  left: -80px;
-}
-
-@keyframes kabanidet {
-  0% {
-    left: -80px;
-  }
-
-  1% {
-    left: 380px;
-  }
-
-  100% {
-    left: 380px;
-  }
-}
-
-.sniper {
-  opacity: 0;
-  position: absolute;
-  z-index: 3;
-  width: 120px;
-  transform: rotate(-22deg);
-  bottom: 10px;
-  left: -10px;
-
-  animation-name: snipersidit;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-delay: 10s;
-}
-
-@keyframes snipersidit {
-  0.5% {
-    opacity: 1;
-  }
-
-  1.5% {
-    opacity: 1;
-  }
-
-  1.55% {
-    opacity: 0;
-  }
-}
-
-.svin {
-  opacity: 0;
-  position: absolute;
-  z-index: 3;
-  right: 10px;
-  height: 50px;
-  top: 40px;
-
-  animation-name: svineating;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-delay: 10s;
-}
-
-@keyframes svineating {
-  0.05% {
-    opacity: 1;
-  }
-
-  1% {
-    opacity: 1;
-  }
-
-  1.05% {
-    opacity: 0;
-  }
-}
-
-.svindead {
-  opacity: 0;
-  position: absolute;
-  z-index: 3;
-  right: 8px;
-  height: 54px;
-  top: 40px;
-
-  animation-name: svinumer;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-delay: 10s;
-}
-
-@keyframes svinumer {
-  0% {
-    opacity: 0;
-  }
-
-  0.99% {
-    opacity: 0;
-  }
-
-  1% {
-    opacity: 1;
-  }
-
-  1.5% {
-    opacity: 1;
-  }
-
-  1.55% {
-    opacity: 0;
-  }
-}
-
-.bullet {
-  opacity: 0;
-  position: absolute;
-  z-index: 4;
-  width: 30px;
-  transform: rotate(60deg);
-  left: 100px;
-  bottom: 53px;
-
-  animation-name: bulletletit;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-delay: 10s;
-}
-
-@keyframes bulletletit {
-  0.49% {
-    opacity: 0;
-  }
-
-  0.5% {
-    opacity: 1;
-    left: 100px;
-    bottom: 53px;
-  }
-
-  1% {
-    opacity: 1;
-    left: 300px;
-    bottom: 133px;
-  }
-
-  1.05% {
-    opacity: 0;
-  }
-}
-
-.boom {
-  opacity: 0;
-  position: absolute;
-  z-index: 5;
-  width: 20px;
-  transform: rotate(150deg);
-  left: 87px;
-  bottom: 48px;
-
-  animation-name: boomletit;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-delay: 10s;
-}
-
-@keyframes boomletit {
-  0.49% {
-    opacity: 0;
-  }
-
-  0.5% {
-    opacity: 1;
-    left: 87px;
-    bottom: 48px;
-  }
-
-  1% {
-    opacity: 1;
-    left: 287px;
-    bottom: 128px;
-  }
-
-  1.05% {
-    opacity: 0;
-  }
-}
-
-.peepoHappy {
-  opacity: 0;
-  position: absolute;
-  z-index: 3;
-  width: 40px;
-  bottom: 70px;
-  right: 90px;
-
-  animation-name: peepoHappySidit;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-delay: 10s;
-}
-
-@keyframes peepoHappySidit {
-  0.05% {
-    opacity: 1;
-  }
-
-  1.05% {
-    opacity: 1;
-  }
-
-  1.1% {
-    opacity: 0;
-  }
-}
-
-.peepoSad {
-  opacity: 0;
-  position: absolute;
-  z-index: 3;
-  width: 40px;
-  bottom: 70px;
-  right: 90px;
-
-  animation-name: peepoSadSidit;
-  animation-duration: 1200s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-delay: 10s;
-}
-
-@keyframes peepoSadSidit {
-  1.05% {
-    opacity: 0;
-  }
-
-  1.1% {
-    opacity: 1;
-  }
-
-  1.5% {
-    opacity: 1;
-  }
-
-  1.55% {
-    opacity: 0;
-  }
+    position: relative;
+    margin: 0 auto;
+    width: 820px;
+    text-align: start;
+    overflow: hidden;
 }
 
 .timer {
-  position: relative;
-  width: 100%;
-  height: 150px;
-}
-
-.timer-stream-uptime {
-  display: inline-block;
-  font-size: 20px;
-  margin: 10px 0 0 24px;
-  letter-spacing: 1.4px;
-}
-
-.timer-stream-uptime > span {
-  letter-spacing: 2px;
+    margin: 120px 120px 120px 238px;
+    position: relative;
 }
 
 .timer-info-container {
-  display: flex;
+    width: 554px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 3;
 }
 
 .timer-bg {
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.timer-emote {
-  height: 60px;
-  margin: 10px 20px 0 24px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .timer-info {
-  margin: 15px 0 0 0;
-  text-align: start;
+    text-align: start;
 }
 
 .timer-info-price {
-  text-transform: uppercase;
-  display: block;
-  font-size: 20px;
-  margin-bottom: 5px;
+    -webkit-text-stroke: 2px #6f1bb1;
+    text-stroke: 2px #6f1bb1;
+    color: #6cfe55;
+    text-transform: uppercase;
+    display: block;
+    font-size: 44px;
+    text-align: end;
 }
 
 .timer-info-time {
-  text-transform: uppercase;
-  font-size: 36px;
-  letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px #6f1bb1;
+    text-stroke: 2px #6f1bb1;
+    color: white;
+    font-size: 70px;
+    letter-spacing: 2px;
+    display: block;
+    text-rendering: optimizeLegibility;
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 14px;
+}
+
+.char {
+    display: inline-block;
+    width: 0.98ch;
+    text-align: center;
+}
+
+.char2 {
+}
+
+.smurf {
+    display: block;
+    z-index: 2;
+    position: absolute;
+    top: -114px;
+    left: -236px;
 }
 
 .donation {
-  position: relative;
-  width: 100%;
+    text-align: end;
+    width: 576px;
+    position: relative;
+    z-index: 3;
+    padding: 24px 0 18px 0;
 }
 
-.donation-bg {
-  width: 100%;
-  z-index: -2;
-  position: absolute;
-  top: -85px;
-  left: 0;
+.donation-dots {
+    letter-spacing: 3px;
+    font-size: 24px;
 }
 
-.donation-item {
-  display: flex;
-  font-size: 20px;
-  margin-bottom: 10px;
-  text-align: start;
+.donation-first {
+    padding: 0 28px 0 0;
+    text-align: end;
+    color: #ffd700;
+    font-size: 26px;
+    font-weight: 300;
 }
 
-.donation-nickname-container {
-  text-align: end;
-  width: 176px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0 10px 0 5px;
+.donation-first-name {
 }
 
-.donation-value {
-  text-transform: uppercase;
+.donation-dots-first {
+    color: #ffd700;
+}
+
+.donation-first-value {
+    letter-spacing: 2px;
+}
+
+.donation-last {
+    font-weight: 300;
+    padding: 12px 28px 0 0;
+    text-align: end;
+    font-size: 26px;
+}
+
+.donation-last-name {
+}
+
+.donation-last-value {
+    letter-spacing: 2px;
 }

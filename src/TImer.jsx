@@ -1,8 +1,5 @@
-import { useState, memo } from "react";
-import B from "./assets/B.png";
-import peepoPopcorn from "./assets/peepoPopcorn.gif";
+import { useState } from "react";
 import { useEffect } from "react";
-import { STREAM_START_DATE } from "./const";
 
 function formatDonation(num) {
   return num
@@ -27,35 +24,18 @@ function formatTime(time) {
     .padStart(2, "0");
 
   const formattedTime = `${days}:${String(hours).padStart(2, "0")}:${String(
-    minutes
+    minutes,
   ).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
   return formattedTime;
 }
 
-const StreamUptime = memo(function StreamUptime() {
-  const [streamUptime, setStreamUptime] = useState(
-    new Date().getTime() - STREAM_START_DATE
-  );
-
-  useEffect(() => {
-    const streamUptimeInterval = setInterval(() => {
-      const now = new Date().getTime();
-      setStreamUptime(now - STREAM_START_DATE);
-    }, 1000);
-
-    return () => {
-      clearInterval(streamUptimeInterval);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <span className="timer-stream-uptime">
-      Стрим идет: <span>{formatTime(streamUptime)}</span>
-    </span>
-  );
-});
+function truncateText(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength).trim() + "...";
+  }
+  return text;
+}
 
 export function Timer() {
   const [data, setData] = useState({
@@ -64,18 +44,18 @@ export function Timer() {
     time: 0,
     stopped: false,
     last: {
-      nick: "Chlen",
-      amount: 50,
+      nick: "Vorun5",
+      amount: 123123,
     },
     top: {
-      nick: "Chlen",
-      amount: 50,
+      nick: "Urbinholt",
+      amount: 123123,
     },
   });
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://old.bho.lt/etc/timer/timer");
+      const response = await fetch("https://bho.lt/etc/timer/timer");
       const newData = await response.json();
       setData({
         ...newData,
@@ -117,6 +97,11 @@ export function Timer() {
     };
   }, [data]);
 
+  const first = data.top.nick ?? "";
+  const last = data.last.nick ?? "";
+  const viewFirst = truncateText(first, 14);
+  const viewLast = truncateText(last, 14);
+
   return (
     <>
       {data.status === "idle" ? (
@@ -124,42 +109,46 @@ export function Timer() {
       ) : (
         <>
           <div className="timer">
-            <StreamUptime />
-            <img className="timer-bg" src="./bg1.png" />
+            <img className="smurf" src="./smurf.gif" />
+            <img className="timer-bg" src="./bg.png" />
+            <div className="donation">
+              <div className="donation-first">
+                <span className="donation-first-name">{viewFirst}</span>
+                <span className="donation-dots donation-dots-first">
+                  &nbsp;{"-"}&nbsp;
+                </span>
+                <span className="donation-first-value">
+                  {formatDonation(data.top.amount)}
+                </span>
+              </div>
+              <div className="donation-last">
+                <span className="donation-last-name">{viewLast}</span>
+                <span className="donation-dots">&nbsp;{"-"}&nbsp;</span>
+                <span className="donation-last-value">
+                  {formatDonation(data.last.amount)}
+                </span>
+              </div>
+            </div>
             <div className="timer-info-container">
-              <img
-                className="timer-emote"
-                src={data.time < 3600 ? B : peepoPopcorn}
-              />
               <div className="timer-info">
-                <span className="timer-info-price">
-                  {formatDonation(1000)} = 1 час
-                </span>
                 <span className="timer-info-time">
-                  {data.time < 0 ? "the end" : formatTime(data.time)}
+                  {data.time < 0
+                    ? "The End!"
+                    : formatTime(data.time)
+                        .split("")
+                        .map((char, index) => (
+                          <span
+                            key={index}
+                            className={char == ":" ? "char2" : "char"}
+                          >
+                            {char}
+                          </span>
+                        ))}
+                </span>
+                <span className="timer-info-price">
+                  <span>25 РУБ</span> <span>=</span> <span>1 мин</span>
                 </span>
               </div>
-            </div>
-          </div>
-          <div className="donation">
-            <img className="donation-bg" src="./bg2.png" />
-            <div className="donation-item">
-              <div className="donation-nickname-container">
-                <span className="donation-nickname">{data.top.nick}</span>
-              </div>
-              - &nbsp;
-              <span className="donation-value">
-                {formatDonation(data.top.amount)}
-              </span>
-            </div>
-            <div className="donation-item">
-              <div className="donation-nickname-container">
-                <span className="donation-nickname">{data.last.nick}</span>
-              </div>
-              - &nbsp;
-              <span className="donation-value">
-                {formatDonation(data.last.amount)}
-              </span>
             </div>
           </div>
         </>
