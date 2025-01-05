@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function formatDonation(num) {
   return num
@@ -24,7 +23,7 @@ function formatTime(time) {
     .padStart(2, "0");
 
   const formattedTime = `${days}:${String(hours).padStart(2, "0")}:${String(
-    minutes,
+    minutes
   ).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
   return formattedTime;
@@ -37,7 +36,7 @@ function truncateText(text, maxLength) {
   return text.trim();
 }
 
-export default function Timer() {
+export function Timer() {
   const [data, setData] = useState({
     status: "idle",
     countDownTime: 0,

@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import Timer from "./Timer.jsx";
+import { Timer } from "@/components/timer";
+import React, { useEffect } from "react";
 
 export function App() {
   useEffect(() => {
