@@ -34,7 +34,7 @@ function truncateText(text, maxLength) {
   if (text.length > maxLength) {
     return text.slice(0, maxLength).trim() + "...";
   }
-  return text;
+  return text.trim();
 }
 
 export function Timer() {
@@ -99,8 +99,8 @@ export function Timer() {
 
   const first = data.top.nick ?? "";
   const last = data.last.nick ?? "";
-  const viewFirst = truncateText(first, 14);
-  const viewLast = truncateText(last, 14);
+  const viewFirst = truncateText(first, 13);
+  const viewLast = truncateText(last, 13);
 
   return (
     <>
@@ -115,16 +115,22 @@ export function Timer() {
               <div className="donation-first">
                 <span className="donation-first-name">{viewFirst}</span>
                 <span className="donation-dots donation-dots-first">
-                  &nbsp;{"-"}&nbsp;
+                  &nbsp;
+                  {/* &nbsp;{"-"}&nbsp; */}
                 </span>
                 <span className="donation-first-value">
+                  {/* 000 000 РУБ */}
                   {formatDonation(data.top.amount)}
                 </span>
               </div>
               <div className="donation-last">
                 <span className="donation-last-name">{viewLast}</span>
-                <span className="donation-dots">&nbsp;{"-"}&nbsp;</span>
+                <span className="donation-dots">
+                  &nbsp;
+                  {/* &nbsp;{"-"}&nbsp; */}
+                </span>
                 <span className="donation-last-value">
+                  {/* 000 000 РУБ */}
                   {formatDonation(data.last.amount)}
                 </span>
               </div>

@@ -114,7 +114,9 @@ body {
 }
 
 .donation-first-value {
-    letter-spacing: 2px;
+    display: inline-block;
+    width: 190px;
+    letter-spacing: 1px;
 }
 
 .donation-last {
@@ -128,5 +130,7 @@ body {
 }
 
 .donation-last-value {
-    letter-spacing: 2px;
+    display: inline-block;
+    width: 190px;
+    letter-spacing: 1px;
 }
