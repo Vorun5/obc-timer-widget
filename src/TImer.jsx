@@ -37,7 +37,7 @@ function truncateText(text, maxLength) {
   return text.trim();
 }
 
-export function Timer() {
+export default function Timer() {
   const [data, setData] = useState({
     status: "idle",
     countDownTime: 0,
